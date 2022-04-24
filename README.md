@@ -1,3 +1,8 @@
+## ChaseTheFlush Frontend
+
+This is the frontend application of the chase the flush.
+The backend repo: https://github.com/simhuang/chasetheflush
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
