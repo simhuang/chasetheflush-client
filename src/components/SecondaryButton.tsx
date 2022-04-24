@@ -2,13 +2,28 @@ import { Button } from "antd";
 
 import PropTypes from "prop-types";
 
+import styled from "styled-components";
+
+import { PRIMARY_GREEN } from "../constants/style";
+
+const SecondaryButtonStyled = styled(Button)`
+  &:hover {
+    border-color: ${PRIMARY_GREEN};
+    color: ${PRIMARY_GREEN};
+  }
+  &:selection {
+    background: ${PRIMARY_GREEN};
+    border-color: ${PRIMARY_GREEN};
+  }
+`;
+
 const SecondaryButton: React.FunctionComponent<SecondaryButton> = ({
   name,
   disabled,
   onClick,
 }) => {
   return (
-    <Button
+    <SecondaryButtonStyled
       type="ghost"
       disabled={disabled}
       shape="default"
@@ -17,7 +32,7 @@ const SecondaryButton: React.FunctionComponent<SecondaryButton> = ({
       size="large"
     >
       {name}
-    </Button>
+    </SecondaryButtonStyled>
   );
 };
 
