@@ -21,6 +21,7 @@ const SecondaryButton: React.FunctionComponent<SecondaryButton> = ({
   name,
   disabled,
   onClick,
+  href,
 }) => {
   return (
     <SecondaryButtonStyled
@@ -30,6 +31,7 @@ const SecondaryButton: React.FunctionComponent<SecondaryButton> = ({
       onClick={() => onClick()}
       loading={false}
       size="large"
+      href={href}
     >
       {name}
     </SecondaryButtonStyled>
@@ -40,12 +42,14 @@ SecondaryButton.propTypes = {
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
+  href: PropTypes.string,
 };
 
 type SecondaryButton = {
   name: string;
   disabled?: boolean;
   onClick: Function;
+  href?: string;
 };
 
 export default SecondaryButton;

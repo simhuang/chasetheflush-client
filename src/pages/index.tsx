@@ -1,15 +1,9 @@
 import type { NextPage } from "next";
 
-import PrimaryButton from "../components/PrimaryButton";
-import SecondaryButton from "../components/SecondaryButton";
+import HomeContainer from "../containers/HomeContainer";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <SecondaryButton name="bitch" onClick={() => {}} />
-      <PrimaryButton name="chicken" onClick={() => {}} />
-    </>
-  );
+  return <HomeContainer />;
 };
 
 export default Home;
