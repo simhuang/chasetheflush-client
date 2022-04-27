@@ -27,7 +27,7 @@ const SecondaryButton: React.FunctionComponent<SecondaryButton> = ({
       type="ghost"
       disabled={disabled}
       shape="default"
-      onClick={() => onClick}
+      onClick={() => onClick()}
       loading={false}
       size="large"
     >
