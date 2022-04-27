@@ -1,21 +1,20 @@
 import React, { FunctionComponent } from "react";
 
-import Link from "next/link";
+import MainLayout from "../components/MainLayout";
 
-import PrimaryButton from "../components/PrimaryButton";
-import SecondaryButton from "../components/SecondaryButton";
+import DiscussionContainer from "../containers/DiscussionContainer";
+import LeftSideBarContainer from "../containers/LeftSideBarContainer";
+import RightSideBarContainer from "../containers/RightSideBarContainer";
 
 type HomeContainerProps = {};
 
 const HomeContainer: FunctionComponent<HomeContainerProps> = () => {
   return (
-    <>
-      <Link href="/signin" passHref>
-        <SecondaryButton name="Sign In" onClick={() => {}} />
-      </Link>
-      <SecondaryButton name="bitch" onClick={() => {}} />
-      <PrimaryButton name="chicken" onClick={() => {}} />
-    </>
+    <MainLayout
+      leftSiderContent={<LeftSideBarContainer />}
+      centerContent={<DiscussionContainer />}
+      rightSiderContent={<RightSideBarContainer />}
+    />
   );
 };
 
