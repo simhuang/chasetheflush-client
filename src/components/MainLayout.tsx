@@ -33,37 +33,43 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
       </Header>
       <div
         style={{
-          width: "1300px",
+          width: "1000px",
           marginLeft: "auto",
           marginRight: "auto",
           background: PRIMARY_WHITE,
         }}
       >
-        <Layout className="main-body">
+        <Layout className="main-body" style={{ width: "100%" }}>
           <Sider
             style={{
               background: PRIMARY_WHITE,
               height: "auto",
-              marginTop: "64px",
+              marginTop: "74px",
+              marginLeft: "10px",
+              marginRight: "10px",
             }}
           >
             {leftSiderContent}
           </Sider>
           <Content
             style={{
-              marginTop: "64px",
-              background: "blue",
-              height: "auto",
+              marginTop: "74px",
+              background: PRIMARY_GREY,
               width: "1000px",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
             }}
           >
             {centerContent}
           </Content>
           <Sider
             style={{
-              marginTop: "64px",
+              marginTop: "74px",
               background: PRIMARY_WHITE,
               height: "auto",
+              marginLeft: "10px",
+              marginRight: "10px",
             }}
           >
             {rightSiderContent}
