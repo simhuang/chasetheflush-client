@@ -13,33 +13,63 @@ const FETCH_LIMIT = 25;
 const DiscussionContainer: FunctionComponent<
   DiscussionContainerProps
 > = ({}) => {
-  const [fetchedOffset, setFetchedOffset] = useState(0);
   const [discussions, setDiscussions] = useState<any[]>([]);
 
   useEffect(() => {
-    async function fetchDiscussion() {
-      const discussionPath = getpaginatedDisucssionsPath();
-      const response = await fetch(discussionPath);
-      const discussionResponse = await response.json();
-      setDiscussions(discussionResponse.data);
+    async function fetchData() {
+      const discussions = await fetchDiscussions();
+      setDiscussions(discussions.data);
     }
-    fetchDiscussion();
+    fetchData();
   }, []);
+
+  const fetchDiscussions = async () => {
+    const fetchOffset = discussions.length;
+    const discussionPath = getpaginatedDisucssionsPath(
+      FETCH_LIMIT,
+      fetchOffset
+    );
+    const response = await fetch(discussionPath);
+    const discussionResponse = await response.json();
+
+    return discussionResponse;
+  };
+
+  const getMoreDiscussions = async () => {
+    const discussionResponse = await fetchDiscussions();
+    setDiscussions([...discussions, ...discussionResponse.data]);
+  };
+
+  const renderDiscussions = () => {
+    return discussions.map((discussion) => {
+      return (
+        <DiscussionCard
+          key={discussion.id}
+          author={discussion.author}
+          content={discussion.content}
+          upvotes={discussion.upvotes}
+          views={discussion.views}
+          commentCount={discussion.commentCount}
+        />
+      );
+    });
+  };
 
   return (
     <div>
-      {discussions.map((discussion) => {
-        return (
-          <DiscussionCard
-            key={discussion.id}
-            author={discussion.author}
-            content={discussion.content}
-            upvotes={discussion.upvotes}
-            views={discussion.views}
-            commentCount={discussion.commentCount}
-          />
-        );
-      })}
+      <InfiniteScroll
+        dataLength={discussions.length}
+        hasMore={true}
+        loader={<h4>loading...</h4>}
+        next={getMoreDiscussions}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+      >
+        {renderDiscussions()}
+      </InfiniteScroll>
     </div>
   );
 };
