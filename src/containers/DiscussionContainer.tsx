@@ -2,14 +2,20 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 
-import DiscussionCard from "../components/DiscussionCard";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-import { getpaginatedDisucssionsPath } from "../api/paths";
+import DiscussionCard from "src/components/DiscussionCard";
+
+import { getpaginatedDisucssionsPath } from "src/api/paths";
+
+const FETCH_LIMIT = 25;
 
 const DiscussionContainer: FunctionComponent<
   DiscussionContainerProps
 > = ({}) => {
+  const [fetchedOffset, setFetchedOffset] = useState(0);
   const [discussions, setDiscussions] = useState<any[]>([]);
+
   useEffect(() => {
     async function fetchDiscussion() {
       const discussionPath = getpaginatedDisucssionsPath();
@@ -45,17 +51,5 @@ type DiscussionContainerProps = {
 DiscussionContainer.propTypes = {
   discussions: PropTypes.array.isRequired,
 };
-
-export async function getStaticProps() {
-  const discussionPath = getpaginatedDisucssionsPath();
-  const response = await fetch(discussionPath);
-  const discussions = response.json();
-  console.log(discussions);
-  return {
-    props: {
-      discussions: discussions,
-    },
-  };
-}
 
 export default DiscussionContainer;
