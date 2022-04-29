@@ -78,7 +78,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
       </div>
       <Footer
         style={{
-          position: "absolute",
+          position: "fixed",
           bottom: 0,
           width: "100%",
           background: PRIMARY_WHITE,
