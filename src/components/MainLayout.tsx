@@ -54,6 +54,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
           <Content
             style={{
               marginTop: "74px",
+              marginBottom: "74px",
               background: PRIMARY_GREY,
               width: "1000px",
               display: "flex",

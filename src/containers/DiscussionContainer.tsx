@@ -8,7 +8,7 @@ import DiscussionCard from "src/components/DiscussionCard";
 
 import { getpaginatedDisucssionsPath } from "src/api/paths";
 
-const FETCH_LIMIT = 25;
+const FETCH_LIMIT = 10;
 
 const DiscussionContainer: FunctionComponent<
   DiscussionContainerProps
