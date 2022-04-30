@@ -2,9 +2,9 @@ import React, { FunctionComponent } from "react";
 
 import MainLayout from "../components/MainLayout";
 
-import DiscussionContainer from "../containers/DiscussionContainer";
-import LeftSideBarContainer from "../containers/LeftSideBarContainer";
-import RightSideBarContainer from "../containers/RightSideBarContainer";
+import DiscussionContainer from "src/containers/DiscussionContainer";
+import LeftSideBarContainer from "src/containers/LeftSideBarContainer";
+import RightSideBarContainer from "src/containers/RightSideBarContainer";
 
 type HomeContainerProps = {};
 
