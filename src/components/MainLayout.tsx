@@ -2,9 +2,9 @@ import { Layout, Menu } from "antd";
 
 import PropTypes from "prop-types";
 
-import HeaderBar from "../containers/Headerbar";
+import HeaderBar from "src/containers/Headerbar";
 
-import { PRIMARY_WHITE, PRIMARY_GREY } from "../constants/style";
+import { PRIMARY_WHITE, PRIMARY_GREY } from "src/constants/style";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -26,6 +26,8 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
           position: "fixed",
           zIndex: 1,
           width: "100%",
+          height: "100px",
+          marginBottom: "24px",
           background: PRIMARY_WHITE,
         }}
       >
@@ -33,49 +35,57 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
       </Header>
       <div
         style={{
-          width: "1000px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          background: PRIMARY_WHITE,
+          width: "1900px",
+          background: PRIMARY_GREY,
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        <Layout className="main-body" style={{ width: "100%" }}>
-          <Sider
-            style={{
-              background: PRIMARY_WHITE,
-              height: "auto",
-              marginTop: "74px",
-              marginLeft: "10px",
-              marginRight: "10px",
-            }}
-          >
-            {leftSiderContent}
-          </Sider>
-          <Content
-            style={{
-              marginTop: "74px",
-              marginBottom: "74px",
-              background: PRIMARY_GREY,
-              width: "1000px",
-              display: "flex",
-              flexDirection: "column",
-              overflow: "hidden",
-            }}
-          >
-            {centerContent}
-          </Content>
-          <Sider
-            style={{
-              marginTop: "74px",
-              background: PRIMARY_WHITE,
-              height: "auto",
-              marginLeft: "10px",
-              marginRight: "10px",
-            }}
-          >
-            {rightSiderContent}
-          </Sider>
-        </Layout>
+        <div
+          className="chicken"
+          style={{
+            background: PRIMARY_WHITE,
+            height: "700px",
+            borderRadius: "12px",
+            marginTop: "124px",
+            marginLeft: "24px",
+            marginRight: "24px",
+            minWidth: "300px",
+            width: "318px",
+            maxWidth: "318px",
+          }}
+        >
+          {leftSiderContent}
+        </div>
+        <Content
+          style={{
+            marginTop: "124px",
+            marginBottom: "74px",
+            background: PRIMARY_GREY,
+            maxWidth: "690px",
+            width: "690px",
+            overflow: "hidden",
+          }}
+        >
+          {centerContent}
+        </Content>
+        <div
+          style={{
+            minWidth: "318px",
+            maxWidth: "318px",
+            borderRadius: "12px",
+            marginTop: "124px",
+            background: PRIMARY_WHITE,
+            minHeight: "500px",
+            flex: "0 0 0",
+            height: "500px",
+            marginLeft: "24px",
+            display: "inline",
+            marginRight: "24px",
+          }}
+        >
+          {rightSiderContent}
+        </div>
       </div>
       <Footer
         style={{

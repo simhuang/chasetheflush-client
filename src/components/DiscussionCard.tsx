@@ -20,25 +20,18 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
 }) => (
   <Card
     style={{
-      marginBottom: "10px",
+      marginBottom: "24px",
+      borderRadius: "12px",
     }}
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-      />
-    }
+    cover={<img alt="example" src="https://picsum.photos/200/100" />}
     actions={[
       <SettingOutlined key="setting" />,
       <EditOutlined key="edit" />,
       <EllipsisOutlined key="ellipsis" />,
     ]}
+    title="Card title"
   >
-    <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-      title="Card title"
-      description={content}
-    />
+    <div>hello</div>
   </Card>
 );
 

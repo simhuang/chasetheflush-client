@@ -55,11 +55,15 @@ const DiscussionContainer: FunctionComponent<
     });
   };
 
+  const hasMore = () => {
+    return discussions.length > 40;
+  };
+
   return (
     <div>
       <InfiniteScroll
         dataLength={discussions.length}
-        hasMore={true}
+        hasMore
         loader={<h4>loading...</h4>}
         next={getMoreDiscussions}
         endMessage={
