@@ -35,52 +35,60 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
       </Header>
       <div
         style={{
-          width: "1900px",
-          background: PRIMARY_GREY,
+          width: "100%",
           display: "flex",
           justifyContent: "center",
         }}
       >
         <div
-          className="chicken"
           style={{
-            background: PRIMARY_WHITE,
-            height: "700px",
-            borderRadius: "12px",
-            marginTop: "124px",
-            marginLeft: "24px",
-            marginRight: "24px",
-            width: "318px",
-            maxWidth: "318px",
-          }}
-        >
-          {leftSiderContent}
-        </div>
-        <Content
-          style={{
-            marginTop: "124px",
-            marginBottom: "74px",
+            width: "1522px",
             background: PRIMARY_GREY,
-            maxWidth: "690px",
-            width: "690px",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          {centerContent}
-        </Content>
-        <div
-          style={{
-            width: "318px",
-            maxWidth: "318px",
-            borderRadius: "12px",
-            marginTop: "124px",
-            background: PRIMARY_WHITE,
-            minHeight: "500px",
-            height: "500px",
-            marginLeft: "24px",
-            marginRight: "24px",
-          }}
-        >
-          {rightSiderContent}
+          <div
+            className="chicken"
+            style={{
+              background: PRIMARY_WHITE,
+              height: "700px",
+              borderRadius: "12px",
+              marginTop: "124px",
+              marginLeft: "24px",
+              marginRight: "24px",
+              width: "318px",
+              maxWidth: "318px",
+            }}
+          >
+            {leftSiderContent}
+          </div>
+          <Content
+            style={{
+              marginTop: "124px",
+              marginBottom: "74px",
+              background: PRIMARY_GREY,
+              maxWidth: "690px",
+              width: "690px",
+            }}
+          >
+            {centerContent}
+          </Content>
+          <div
+            style={{
+              width: "318px",
+              maxWidth: "318px",
+              borderRadius: "12px",
+              marginTop: "124px",
+              background: PRIMARY_WHITE,
+              minHeight: "500px",
+              height: "500px",
+              marginLeft: "24px",
+              marginRight: "24px",
+            }}
+          >
+            {rightSiderContent}
+          </div>
         </div>
       </div>
       <Footer
