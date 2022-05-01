@@ -49,11 +49,10 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
           }}
         >
           <div
-            className="chicken"
             style={{
               background: PRIMARY_WHITE,
               height: "700px",
-              borderRadius: "12px",
+              borderRadius: "8px",
               marginTop: "124px",
               marginLeft: "24px",
               marginRight: "24px",
@@ -78,7 +77,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
             style={{
               width: "318px",
               maxWidth: "318px",
-              borderRadius: "12px",
+              borderRadius: "8px",
               marginTop: "124px",
               background: PRIMARY_WHITE,
               minHeight: "500px",

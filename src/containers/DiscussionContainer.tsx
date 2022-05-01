@@ -45,11 +45,12 @@ const DiscussionContainer: FunctionComponent<
       return (
         <DiscussionCard
           key={discussion.id}
-          author={discussion.author}
+          user={discussion.user}
           content={discussion.content}
           upvotes={discussion.upvotes}
           views={discussion.views}
           commentCount={discussion.commentCount}
+          title={discussion.title}
         />
       );
     });

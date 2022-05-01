@@ -12,43 +12,41 @@ import {
 const { Meta } = Card;
 
 const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
-  author,
+  user,
   content,
   upvotes,
   commentCount,
   views,
+  title,
 }) => (
   <Card
     style={{
       marginBottom: "24px",
-      borderRadius: "12px",
+      borderRadius: "8px",
     }}
-    cover={<img alt="example" src="https://picsum.photos/200/100" />}
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-    title="Card title"
+    extra={<div style={{ fontSize: "10px" }}>5 minutes ago</div>}
+    title={`${user.firstName} ${user.lastName}`}
   >
-    <div>hello</div>
+    <h1>{title}</h1>
   </Card>
 );
 
 type DiscussionCardProps = {
-  author: string;
+  user: any;
   content: string;
   upvotes: number;
   commentCount: number;
   views: number;
+  title?: string;
 };
 
 DiscussionCard.propTypes = {
-  author: PropTypes.string.isRequired,
+  user: PropTypes.element.isRequired,
   content: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,
   views: PropTypes.number.isRequired,
+  title: PropTypes.string,
 };
 
 export default DiscussionCard;
