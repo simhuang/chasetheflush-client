@@ -50,7 +50,6 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
             marginTop: "124px",
             marginLeft: "24px",
             marginRight: "24px",
-            minWidth: "300px",
             width: "318px",
             maxWidth: "318px",
           }}
@@ -64,23 +63,20 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
             background: PRIMARY_GREY,
             maxWidth: "690px",
             width: "690px",
-            overflow: "hidden",
           }}
         >
           {centerContent}
         </Content>
         <div
           style={{
-            minWidth: "318px",
+            width: "318px",
             maxWidth: "318px",
             borderRadius: "12px",
             marginTop: "124px",
             background: PRIMARY_WHITE,
             minHeight: "500px",
-            flex: "0 0 0",
             height: "500px",
             marginLeft: "24px",
-            display: "inline",
             marginRight: "24px",
           }}
         >
