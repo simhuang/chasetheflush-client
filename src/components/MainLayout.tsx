@@ -42,7 +42,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
       >
         <div
           style={{
-            width: "1522px",
+            width: "1482px",
             background: PRIMARY_GREY,
             display: "flex",
             justifyContent: "center",
@@ -56,8 +56,8 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
               marginTop: "124px",
               marginLeft: "24px",
               marginRight: "24px",
-              width: "318px",
-              maxWidth: "318px",
+              width: "250px",
+              maxWidth: "250px",
             }}
           >
             {leftSiderContent}
@@ -67,16 +67,17 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
               marginTop: "124px",
               marginBottom: "74px",
               background: PRIMARY_GREY,
-              maxWidth: "690px",
-              width: "690px",
+              minWidth: "640px",
+              maxWidth: "640px",
+              width: "640",
             }}
           >
             {centerContent}
           </Content>
           <div
             style={{
-              width: "318px",
-              maxWidth: "318px",
+              width: "250px",
+              maxWidth: "250px",
               borderRadius: "8px",
               marginTop: "124px",
               background: PRIMARY_WHITE,
@@ -90,23 +91,6 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
           </div>
         </div>
       </div>
-      <Footer
-        style={{
-          position: "fixed",
-          bottom: 0,
-          width: "100%",
-          background: PRIMARY_WHITE,
-        }}
-      >
-        <div
-          style={{
-            margin: "auto",
-            width: "1400px",
-          }}
-        >
-          footer
-        </div>
-      </Footer>
     </Layout>
   );
 };

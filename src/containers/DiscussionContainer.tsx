@@ -51,6 +51,9 @@ const DiscussionContainer: FunctionComponent<
           views={discussion.views}
           commentCount={discussion.commentCount}
           title={discussion.title}
+          onClick={() => {
+            console.log("helo world");
+          }}
         />
       );
     });

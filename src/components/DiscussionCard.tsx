@@ -2,12 +2,9 @@ import React, { FunctionComponent } from "react";
 
 import PropTypes from "prop-types";
 
-import { Card, Avatar } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { Card, Avatar, Button } from "antd";
+import { LikeFilled, EyeFilled, MessageFilled } from "@ant-design/icons";
+import { PRIMARY_GREEN } from "src/constants/style";
 
 const { Meta } = Card;
 
@@ -18,8 +15,11 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
   commentCount,
   views,
   title,
+  onClick,
 }) => (
   <Card
+    hoverable
+    onClick={() => onClick()}
     style={{
       marginBottom: "24px",
       borderRadius: "8px",
@@ -27,7 +27,28 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
     extra={<div style={{ fontSize: "10px" }}>5 minutes ago</div>}
     title={`${user.firstName} ${user.lastName}`}
   >
-    <h1>{title}</h1>
+    <h3>{title}</h3>
+    <p style={{ fontSize: "16px" }}>{content}</p>
+    <div style={{ display: "flex", gap: "8px" }}>
+      <span>
+        <LikeFilled style={{ fontSize: "18px" }} />
+        <p style={{ display: "inline", marginLeft: "4px", fontSize: "18px" }}>
+          {upvotes}
+        </p>
+      </span>
+      <span>
+        <EyeFilled style={{ fontSize: "18px" }} />
+        <p style={{ display: "inline", marginLeft: "4px", fontSize: "18px" }}>
+          {views}
+        </p>
+      </span>
+      <span>
+        <MessageFilled style={{ fontSize: "18px" }} />
+        <p style={{ display: "inline", marginLeft: "4px", fontSize: "18px" }}>
+          {commentCount}
+        </p>
+      </span>
+    </div>
   </Card>
 );
 
@@ -38,6 +59,7 @@ type DiscussionCardProps = {
   commentCount: number;
   views: number;
   title?: string;
+  onClick: Function;
 };
 
 DiscussionCard.propTypes = {
@@ -47,6 +69,7 @@ DiscussionCard.propTypes = {
   commentCount: PropTypes.number.isRequired,
   views: PropTypes.number.isRequired,
   title: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default DiscussionCard;
