@@ -90,4 +90,8 @@ DiscussionContainer.propTypes = {
   discussions: PropTypes.array.isRequired,
 };
 
+DiscussionContainer.defaultProps = {
+  discussions: [],
+};
+
 export default DiscussionContainer;

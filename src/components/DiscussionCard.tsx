@@ -63,7 +63,7 @@ type DiscussionCardProps = {
 };
 
 DiscussionCard.propTypes = {
-  user: PropTypes.element.isRequired,
+  user: PropTypes.object.isRequired,
   content: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,
