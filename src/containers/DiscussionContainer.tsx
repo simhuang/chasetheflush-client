@@ -2,6 +2,8 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 
+import Link from "next/link";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import DiscussionCard from "src/components/DiscussionCard";
@@ -40,21 +42,25 @@ const DiscussionContainer: FunctionComponent<
     setDiscussions([...discussions, ...discussionResponse.data]);
   };
 
+  const handleCardClick = (e: any) => {
+    console.log(e.target);
+  };
+
   const renderDiscussions = () => {
-    return discussions.map((discussion) => {
+    console.log(discussions);
+    return discussions.map((discussion, index) => {
       return (
-        <DiscussionCard
-          key={discussion.id}
-          user={discussion.user}
-          content={discussion.content}
-          upvotes={discussion.upvotes}
-          views={discussion.views}
-          commentCount={discussion.commentCount}
-          title={discussion.title}
-          onClick={() => {
-            console.log("helo world");
-          }}
-        />
+        <Link key={index} passHref href={`/post/${discussion.id}`}>
+          <DiscussionCard
+            user={discussion.user}
+            content={discussion.content}
+            upvotes={discussion.upvotes}
+            views={discussion.views}
+            commentCount={discussion.commentCount}
+            title={discussion.title}
+            onClick={handleCardClick}
+          />
+        </Link>
       );
     });
   };

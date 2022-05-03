@@ -19,7 +19,7 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
 }) => (
   <Card
     hoverable
-    onClick={() => onClick()}
+    onClick={(e) => onClick(e)}
     style={{
       marginBottom: "24px",
       borderRadius: "8px",
