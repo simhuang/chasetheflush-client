@@ -4,7 +4,7 @@ import PostContainer from "src/containers/PostContainer";
 import { getPost } from 'src/api/paths'
 
 const Post: FunctionComponent<PostProps> = ({postData}) => {
-  return <PostContainer post={postData}/>;
+  return <PostContainer post={postData.data}/>;
 };
 
 export async function getServerSideProps(context: any) {

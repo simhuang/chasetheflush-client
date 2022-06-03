@@ -1,11 +1,14 @@
-import React, { FunctionComponent, useState, useEffect} from 'react';
+import React, { FunctionComponent } from 'react';
 
 const PostContainer: FunctionComponent<PostContainerTypes> = ({post}) => {
     return (
         <>
             <div>hellowodfdrld</div>
-            <div>{JSON.stringify(post)}</div>
-            <div>{post.data.title}sfsdfjskdfskduh</div>
+            <div>{post.title}</div>
+            <div>{post.content}</div>
+            <div>{post.upvotes}</div>
+            <div>{post.commentCount}</div>
+            <div>{post.created}</div>
         </>
     )
 }
