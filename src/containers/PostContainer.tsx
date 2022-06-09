@@ -16,14 +16,15 @@ const PostContainer: FunctionComponent<PostContainerTypes> = ({post}) => {
     }
 
     const renderComments = () => {
-        return comments.forEach((comment) => {
+        return comments.map((comment) => {
             return (
-                <div>
+                <div key={comment.id}>
                     <div>{comment.comment}</div>
                     <div>{comment.upvotes}</div>
                 </div>
             )
         })
+
     }
 
     return (
@@ -36,7 +37,7 @@ const PostContainer: FunctionComponent<PostContainerTypes> = ({post}) => {
             <div>{post.created}</div>
             <br/>
             <h3>comments</h3>
-            {renderComments()}
+            {<div>{renderComments()}</div>}
         </>
     )
 }
