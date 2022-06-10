@@ -47,7 +47,6 @@ const DiscussionContainer: FunctionComponent<
   };
 
   const renderDiscussions = () => {
-    console.log(discussions);
     return discussions.map((discussion, index) => {
       return (
         <Link key={index} passHref href={`/post/${discussion.id}`}>

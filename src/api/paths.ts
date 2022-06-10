@@ -9,8 +9,8 @@ export const getpaginatedDisucssionsPath = (limit = 0, offset = 0) => {
 
 export const getPost = (id: number) => {
   return `${BASE_PATH}${DISCUSSIONS}/${id}`;
-}
+};
 
 export const getComments = (id: number) => {
   return `${BASE_PATH}${COMMENT}`;
-}
+};
