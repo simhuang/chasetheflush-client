@@ -24,7 +24,7 @@ const PrimaryButton: React.FunctionComponent<PrimaryButtonType> = ({
       type="primary"
       disabled={disabled}
       shape="default"
-      onClick={() => onClick}
+      onClick={() => onClick()}
       loading={false}
       size="large"
     >

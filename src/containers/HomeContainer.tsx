@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import MainLayout from "../components/MainLayout";
+import MainLayout from "src/components/MainLayout";
 
 import DiscussionContainer from "src/containers/DiscussionContainer";
 import LeftSideBarContainer from "src/containers/LeftSideBarContainer";
