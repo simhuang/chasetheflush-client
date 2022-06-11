@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import Link from "next/link";
 
+import { useRouter } from "next/router";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import DiscussionCard from "src/components/DiscussionCard";
@@ -16,6 +18,7 @@ const DiscussionContainer: FunctionComponent<
   DiscussionContainerProps
 > = ({}) => {
   const [discussions, setDiscussions] = useState<any[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchData() {
@@ -42,24 +45,23 @@ const DiscussionContainer: FunctionComponent<
     setDiscussions([...discussions, ...discussionResponse.data]);
   };
 
-  const handleCardClick = (e: any) => {
-    console.log(e.target);
+  const handleCardClick = (id: number) => {
+    router.push(`/post/${id}`);
   };
 
   const renderDiscussions = () => {
     return discussions.map((discussion, index) => {
       return (
-        <Link key={index} passHref href={`/post/${discussion.id}`}>
-          <DiscussionCard
-            user={discussion.user}
-            content={discussion.content}
-            upvotes={discussion.upvotes}
-            views={discussion.views}
-            commentCount={discussion.commentCount}
-            title={discussion.title}
-            onClick={handleCardClick}
-          />
-        </Link>
+        <DiscussionCard
+          key={discussion.id}
+          user={discussion.user}
+          content={discussion.content}
+          upvotes={discussion.upvotes}
+          views={discussion.views}
+          commentCount={discussion.commentCount}
+          title={discussion.title}
+          onClick={() => handleCardClick(discussion.id)}
+        />
       );
     });
   };
