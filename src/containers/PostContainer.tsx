@@ -42,7 +42,13 @@ const PostContainer: FunctionComponent<PostContainerTypes> = ({ post }) => {
 };
 
 type PostContainerTypes = {
-  post: Object;
+  post: {
+    title: string;
+    content: string;
+    upvotes: number;
+    commentCount: number;
+    created: any;
+  };
 };
 
 export default PostContainer;
