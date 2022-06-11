@@ -2,8 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 
 import PropTypes from "prop-types";
 
-import Link from "next/link";
-
 import { useRouter } from "next/router";
 
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -74,7 +72,7 @@ const DiscussionContainer: FunctionComponent<
     <div>
       <InfiniteScroll
         dataLength={discussions.length}
-        hasMore
+        hasMore={hasMore()}
         loader={<h4>loading...</h4>}
         next={getMoreDiscussions}
         endMessage={
