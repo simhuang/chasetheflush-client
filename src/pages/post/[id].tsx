@@ -20,7 +20,15 @@ export async function getServerSideProps(context: any) {
 }
 
 type PostProps = {
-  postData: { data: Object };
+  postData: {
+    data: {
+      title: string;
+      content: string;
+      upvotes: number;
+      commentCount: number;
+      created: any;
+    };
+  };
 };
 
 export default Post;

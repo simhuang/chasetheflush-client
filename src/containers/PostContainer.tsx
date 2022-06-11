@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { getComments } from "src/api/paths";
 
-const PostContainer: FunctionComponent<PostContainerTypes> = ({ post }) => {
-  const [comments, setComments] = useState([]);
+const PostContainer: FC<PostContainerTypes> = ({ post }) => {
+  const [comments, setComments] = useState<any[]>([]);
 
   useEffect(() => {
     fetchComments();
