@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 
 import { getComments } from "src/api/paths";
+import PrimaryButton from "src/components/PrimaryButton";
 
 const PostContainer: FC<PostContainerTypes> = ({ post }) => {
   const [comments, setComments] = useState<any[]>([]);
@@ -26,6 +27,10 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
     });
   };
 
+  const addComment = () => {
+    console.log("adding new comment");
+  };
+
   return (
     <>
       <h3>post</h3>
@@ -35,6 +40,7 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
       <div>{post.commentCount}</div>
       <div>{post.created}</div>
       <br />
+      <PrimaryButton name="Add Comment" onClick={addComment} />
       <h3>comments</h3>
       {<div>{renderComments()}</div>}
     </>
