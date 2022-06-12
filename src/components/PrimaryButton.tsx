@@ -5,13 +5,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledPrimaryButton = styled(Button)`
-  background: #2bae66ff;
-  border-color: #2bae66ff;
-  border-radius: 4px;
   margin: 10px;
-  &:hover {
-    background: #2bae66ff;
-  }
 `;
 
 const PrimaryButton: React.FunctionComponent<PrimaryButtonType> = ({
