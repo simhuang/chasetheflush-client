@@ -17,8 +17,8 @@ const BaseModal: FC<BaseModalTypes> = ({ children, show }) => {
 };
 
 type BaseModalTypes = {
-  children: any;
-  show: boolean;
+  children?: any;
+  show?: any;
 };
 
 export default BaseModal;

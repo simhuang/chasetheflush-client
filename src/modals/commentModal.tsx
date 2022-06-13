@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import MainModal from "src/components/Modal";
 import { hideModal } from "src/reducers/modal";

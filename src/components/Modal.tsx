@@ -11,7 +11,6 @@ const MainModal: FC<MainModalTypes> = ({
   onCancel,
   children,
 }) => {
-  console.log(onOkay);
   return (
     <BaseModal show={visible}>
       <Modal
@@ -30,8 +29,8 @@ const MainModal: FC<MainModalTypes> = ({
 type MainModalTypes = {
   title: string;
   visible: boolean;
-  onOkay: Function;
-  onCancel: Function;
+  onOkay: any;
+  onCancel: any;
   children: any;
 };
 
