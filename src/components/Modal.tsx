@@ -10,6 +10,7 @@ const MainModal: FC<MainModalTypes> = ({
   onOkay,
   onCancel,
   children,
+  confirmText,
 }) => {
   return (
     <BaseModal show={visible}>
@@ -19,6 +20,7 @@ const MainModal: FC<MainModalTypes> = ({
         title={title}
         visible={true}
         centered
+        okText={confirmText}
       >
         {children}
       </Modal>
@@ -32,6 +34,7 @@ type MainModalTypes = {
   onOkay: any;
   onCancel: any;
   children: any;
+  confirmText: string;
 };
 
 export default MainModal;
