@@ -1,13 +1,24 @@
 import React, { FC, useEffect, useState } from "react";
 
+import { useDispatch } from "react-redux";
+
+import { showModal, hideModal } from "src/reducers/modal";
+
 import { getComments } from "src/api/paths";
+
 import PrimaryButton from "src/components/PrimaryButton";
+import CommentModal from "src/modals/commentModal";
 
 const PostContainer: FC<PostContainerTypes> = ({ post }) => {
+  const dispatch = useDispatch();
   const [comments, setComments] = useState<any[]>([]);
+  //   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchComments();
+    return () => {
+      dispatch(hideModal());
+    };
   }, []);
 
   const fetchComments = async () => {
@@ -28,7 +39,7 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
   };
 
   const addComment = () => {
-    console.log("adding new comment");
+    dispatch(showModal());
   };
 
   return (
@@ -43,6 +54,7 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
       <PrimaryButton name="Add Comment" onClick={addComment} />
       <h3>comments</h3>
       {<div>{renderComments()}</div>}
+      <CommentModal />
     </>
   );
 };
