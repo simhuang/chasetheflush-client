@@ -22,7 +22,6 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
     onClick={(e) => onClick(e)}
     style={{
       marginBottom: "24px",
-      borderRadius: "8px",
     }}
     extra={<div style={{ fontSize: "10px" }}>5 minutes ago</div>}
     title={`${user.firstName} ${user.lastName}`}

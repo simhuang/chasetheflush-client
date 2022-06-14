@@ -2,6 +2,8 @@ import React, { FC, useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
+import { Input, Form } from "antd";
+
 import { showModal, hideModal } from "src/reducers/modal";
 
 import { getComments } from "src/api/paths";
@@ -9,10 +11,12 @@ import { getComments } from "src/api/paths";
 import PrimaryButton from "src/components/PrimaryButton";
 import CommentModal from "src/modals/commentModal";
 
+const { TextArea } = Input;
+
 const PostContainer: FC<PostContainerTypes> = ({ post }) => {
   const dispatch = useDispatch();
   const [comments, setComments] = useState<any[]>([]);
-  //   const [showModal, setShowModal] = useState(false);
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     fetchComments();
@@ -39,7 +43,11 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
   };
 
   const addComment = () => {
-    dispatch(showModal());
+    console.log("adding comment");
+  };
+
+  const commentOnChange = (e: any) => {
+    setComment(e.target.value);
   };
 
   return (
@@ -51,8 +59,20 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
       <div>{post.commentCount}</div>
       <div>{post.created}</div>
       <br />
-      <PrimaryButton name="Add Comment" onClick={addComment} />
+
       <h3>comments</h3>
+      <>
+        <Form.Item>
+          <TextArea rows={1} onChange={commentOnChange} value={comment} />
+        </Form.Item>
+        <Form.Item>
+          <PrimaryButton
+            name="Add Comment"
+            htmlType="submit"
+            onClick={addComment}
+          />
+        </Form.Item>
+      </>
       {<div>{renderComments()}</div>}
       <CommentModal />
     </>

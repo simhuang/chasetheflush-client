@@ -7,6 +7,7 @@ import { hideModal } from "src/reducers/modal";
 import { Input } from "antd";
 const { TextArea } = Input;
 
+// TODO: TO BE DELETED BECAUSE THE CHANGE IS DONE IN POST CONTAINER
 const CommentModal = () => {
   const dispatch = useDispatch();
   const showModal = useSelector((state: any) => state.modal.showModal);
@@ -22,7 +23,7 @@ const CommentModal = () => {
     dispatch(hideModal());
   };
 
-  const onChange = (e) => {
+  const onChange = (e: any) => {
     setComment(e.target.value);
   };
 

@@ -20,7 +20,6 @@ const PrimaryButton: React.FunctionComponent<PrimaryButtonType> = ({
       shape="default"
       onClick={() => onClick()}
       loading={false}
-      size="large"
     >
       {name}
     </StyledPrimaryButton>
