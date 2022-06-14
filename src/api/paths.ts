@@ -14,3 +14,5 @@ export const getPost = (id: number) => {
 export const getComments = (id: number) => {
   return `${BASE_PATH}${COMMENT}`;
 };
+
+export const ADD_COMMENT = `${BASE_PATH}${COMMENT}`;

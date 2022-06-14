@@ -6,10 +6,11 @@ import { Input, Form } from "antd";
 
 import { showModal, hideModal } from "src/reducers/modal";
 
-import { getComments } from "src/api/paths";
+import { getComments, ADD_COMMENT } from "src/api/paths";
 
 import PrimaryButton from "src/components/PrimaryButton";
 import CommentModal from "src/modals/commentModal";
+import { create } from "src/api/apiHelper";
 
 const { TextArea } = Input;
 
@@ -42,8 +43,14 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
     });
   };
 
-  const addComment = () => {
-    console.log("adding comment");
+  const addComment = async () => {
+    const newComment = await create(ADD_COMMENT, {
+      userId: 6,
+      discussionId: 11,
+      content: comment,
+    });
+
+    setComments([...comments, newComment]);
   };
 
   const commentOnChange = (e: any) => {
