@@ -11,6 +11,7 @@ import { getComments, ADD_COMMENT } from "src/api/paths";
 import PrimaryButton from "src/components/PrimaryButton";
 import CommentModal from "src/modals/commentModal";
 import { create } from "src/api/apiHelper";
+import SingleComment from "src/components/Comment";
 
 const { TextArea } = Input;
 
@@ -35,10 +36,16 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
   const renderComments = () => {
     return comments.map((comment) => {
       return (
-        <div key={comment.id}>
-          <div>{comment.comment}</div>
-          <div>{comment.upvotes}</div>
-        </div>
+        <SingleComment
+          key={comment.id}
+          author={"Simon Huang"}
+          onLike={() => {}}
+          onDislike={() => {}}
+          text={comment.comment}
+          likes={comment.upvotes}
+          dislikes={0}
+          created={comment.created}
+        />
       );
     });
   };
@@ -50,7 +57,7 @@ const PostContainer: FC<PostContainerTypes> = ({ post }) => {
       content: comment,
     });
 
-    setComments([...comments, newComment]);
+    setComments([newComment, ...comments]);
   };
 
   const commentOnChange = (e: any) => {

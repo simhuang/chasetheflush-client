@@ -2,9 +2,13 @@ import React, { FunctionComponent } from "react";
 
 import PropTypes from "prop-types";
 
-import { Card, Avatar, Button } from "antd";
+import moment from "moment";
+
+import { Card, Avatar, Button, Tooltip } from "antd";
 import { LikeFilled, EyeFilled, MessageFilled } from "@ant-design/icons";
 import { PRIMARY_GREEN } from "src/constants/style";
+
+import { UTC_DATETIME } from "src/constants/time";
 
 const { Meta } = Card;
 
@@ -16,6 +20,7 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
   views,
   title,
   onClick,
+  created,
 }) => (
   <Card
     hoverable
@@ -23,7 +28,12 @@ const DiscussionCard: FunctionComponent<DiscussionCardProps> = ({
     style={{
       marginBottom: "24px",
     }}
-    extra={<div style={{ fontSize: "10px" }}>5 minutes ago</div>}
+    extra={
+      // @ts-ignore comment
+      <Tooltip>
+        <span>{moment(created, UTC_DATETIME).fromNow()}</span>
+      </Tooltip>
+    }
     title={`${user.firstName} ${user.lastName}`}
   >
     <h3>{title}</h3>
@@ -59,6 +69,7 @@ type DiscussionCardProps = {
   views: number;
   title?: string;
   onClick: Function;
+  created: string;
 };
 
 DiscussionCard.propTypes = {
@@ -69,6 +80,7 @@ DiscussionCard.propTypes = {
   views: PropTypes.number.isRequired,
   title: PropTypes.string,
   onClick: PropTypes.func.isRequired,
+  created: PropTypes.string.isRequired,
 };
 
 export default DiscussionCard;

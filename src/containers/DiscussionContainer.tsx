@@ -59,6 +59,7 @@ const DiscussionContainer: FunctionComponent<
           commentCount={discussion.commentCount}
           title={discussion.title}
           onClick={() => handleCardClick(discussion.id)}
+          created={discussion.created}
         />
       );
     });
