@@ -43,7 +43,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
         <div
           style={{
             width: "1482px",
-            background: PRIMARY_GREY,
+            background: PRIMARY_WHITE,
             display: "flex",
             justifyContent: "center",
           }}
@@ -66,7 +66,7 @@ const MainLayout: React.FunctionComponent<MainLayout> = ({
             style={{
               marginTop: "124px",
               marginBottom: "74px",
-              background: PRIMARY_GREY,
+              background: PRIMARY_WHITE,
               minWidth: "640px",
               maxWidth: "640px",
               width: "640",

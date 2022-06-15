@@ -6,11 +6,21 @@ import { useRouter } from "next/router";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { List, Avatar, Space } from "antd";
+import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
+
 import DiscussionCard from "src/components/DiscussionCard";
 
 import { getpaginatedDisucssionsPath } from "src/api/paths";
 
 const FETCH_LIMIT = 10;
+
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+);
 
 const DiscussionContainer: FunctionComponent<
   DiscussionContainerProps
@@ -47,6 +57,7 @@ const DiscussionContainer: FunctionComponent<
     router.push(`/post/${id}`);
   };
 
+  // TODO: TO BE REMOVED
   const renderDiscussions = () => {
     return discussions.map((discussion, index) => {
       return (
@@ -63,6 +74,33 @@ const DiscussionContainer: FunctionComponent<
         />
       );
     });
+  };
+
+  const renderDiscussionsList = () => {
+    return (
+      <List
+        dataSource={discussions}
+        renderItem={(discussion) => (
+          <div>
+            <IconText
+              icon={StarOutlined}
+              text={discussion.views}
+              key="list-vertical-star-o"
+            />
+            <IconText
+              icon={LikeOutlined}
+              text={discussion.upvotes}
+              key="list-vertical-like-o"
+            />
+            <IconText
+              icon={MessageOutlined}
+              text={discussion.commentCount}
+              key="list-vertical-message"
+            />
+          </div>
+        )}
+      />
+    );
   };
 
   const hasMore = () => {
@@ -83,6 +121,7 @@ const DiscussionContainer: FunctionComponent<
         }
       >
         {renderDiscussions()}
+        {/* {renderDiscussionsList()} */}
       </InfiniteScroll>
     </div>
   );
