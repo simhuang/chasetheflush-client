@@ -119,6 +119,7 @@ const DiscussionContainer: FunctionComponent<
             <b>Yay! You have seen it all</b>
           </p>
         }
+        style={{ padding: "10px" }}
       >
         {renderDiscussions()}
         {/* {renderDiscussionsList()} */}

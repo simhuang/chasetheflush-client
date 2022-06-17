@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import MainLayout from "src/components/MainLayout";
+import SecondaryLayout from "src/components/SecondaryLayout";
 
 import DiscussionContainer from "src/containers/DiscussionContainer";
 import LeftSideBarContainer from "src/containers/LeftSideBarContainer";
@@ -10,10 +10,9 @@ type HomeContainerProps = {};
 
 const HomeContainer: FunctionComponent<HomeContainerProps> = () => {
   return (
-    <MainLayout
-      leftSiderContent={<LeftSideBarContainer />}
+    <SecondaryLayout
       centerContent={<DiscussionContainer />}
-      rightSiderContent={<RightSideBarContainer />}
+      sideContent={<RightSideBarContainer />}
     />
   );
 };
