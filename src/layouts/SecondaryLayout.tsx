@@ -4,10 +4,9 @@ import PropTypes from "prop-types";
 
 import HeaderBar from "src/containers/Headerbar";
 
-import { PRIMARY_WHITE, PRIMARY_GREY } from "src/constants/style";
-import PrimaryButton from "./PrimaryButton";
+import { PRIMARY_WHITE } from "src/constants/style";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const SecondaryLayout: React.FunctionComponent<SecondaryLayout> = ({
   centerContent,
@@ -30,7 +29,7 @@ const SecondaryLayout: React.FunctionComponent<SecondaryLayout> = ({
       <Layout style={{ background: PRIMARY_WHITE }}>
         <Layout
           style={{
-            width: "1000px",
+            width: "800px",
             marginTop: "75px",
             marginLeft: "auto",
             marginRight: "auto",
@@ -45,15 +44,17 @@ const SecondaryLayout: React.FunctionComponent<SecondaryLayout> = ({
           >
             {centerContent}
           </Content>
-          <Sider
-            style={{
-              marginTop: "24px",
-              background: PRIMARY_WHITE,
-              height: "auto",
-            }}
-          >
-            {sideContent}
-          </Sider>
+          {sideContent && (
+            <Sider
+              style={{
+                marginTop: "24px",
+                background: PRIMARY_WHITE,
+                height: "auto",
+              }}
+            >
+              {sideContent}
+            </Sider>
+          )}
         </Layout>
       </Layout>
     </Layout>
@@ -67,7 +68,7 @@ SecondaryLayout.propTypes = {
 
 type SecondaryLayout = {
   centerContent: any;
-  sideContent: any;
+  sideContent?: any;
 };
 
 export default SecondaryLayout;

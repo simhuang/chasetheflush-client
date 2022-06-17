@@ -2,9 +2,15 @@ import React, { FunctionComponent } from "react";
 import PostContainer from "src/containers/PostContainer";
 
 import { getPost } from "src/api/paths";
+import SecondaryLayout from "src/layouts/SecondaryLayout";
 
 const Post: FunctionComponent<PostProps> = ({ postData }) => {
-  return <PostContainer post={postData.data} />;
+  return (
+    <SecondaryLayout
+      centerContent={<PostContainer post={postData.data} />}
+      sideContent={null}
+    />
+  );
 };
 
 export async function getServerSideProps(context: any) {

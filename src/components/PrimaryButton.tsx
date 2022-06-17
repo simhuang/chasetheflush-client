@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 
 import styled from "styled-components";
 
-const StyledPrimaryButton = styled(Button)`
-  margin: 10px;
-`;
+const StyledPrimaryButton = styled(Button)``;
 
 const PrimaryButton: React.FunctionComponent<PrimaryButtonType> = ({
   name,
