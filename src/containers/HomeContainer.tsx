@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
 
-import SecondaryLayout from "src/components/SecondaryLayout";
+import SecondaryLayout from "src/layouts/SecondaryLayout";
 
 import DiscussionContainer from "src/containers/DiscussionContainer";
-import LeftSideBarContainer from "src/containers/LeftSideBarContainer";
 import RightSideBarContainer from "src/containers/RightSideBarContainer";
 
 type HomeContainerProps = {};

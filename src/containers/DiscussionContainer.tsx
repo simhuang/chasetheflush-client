@@ -1,12 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 
-import PropTypes from "prop-types";
-
 import { useRouter } from "next/router";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { List, Avatar, Space } from "antd";
+import { List, Space } from "antd";
 import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
 
 import DiscussionCard from "src/components/DiscussionCard";
@@ -15,7 +13,7 @@ import { getpaginatedDisucssionsPath } from "src/api/paths";
 
 const FETCH_LIMIT = 10;
 
-const IconText = ({ icon, text }) => (
+const IconText = ({ icon, text }: any) => (
   <Space>
     {React.createElement(icon)}
     {text}
@@ -119,7 +117,7 @@ const DiscussionContainer: FunctionComponent<
             <b>Yay! You have seen it all</b>
           </p>
         }
-        style={{ padding: "10px" }}
+        style={{ paddingLeft: "10px", paddingRight: "10px" }}
       >
         {renderDiscussions()}
         {/* {renderDiscussionsList()} */}
@@ -128,16 +126,6 @@ const DiscussionContainer: FunctionComponent<
   );
 };
 
-type DiscussionContainerProps = {
-  discussions: Array<any>;
-};
-
-DiscussionContainer.propTypes = {
-  discussions: PropTypes.array.isRequired,
-};
-
-DiscussionContainer.defaultProps = {
-  discussions: [],
-};
+type DiscussionContainerProps = {};
 
 export default DiscussionContainer;

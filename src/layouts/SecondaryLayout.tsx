@@ -21,8 +21,6 @@ const SecondaryLayout: React.FunctionComponent<SecondaryLayout> = ({
           position: "fixed",
           zIndex: 1,
           width: "100%",
-          height: "100px",
-          marginBottom: "24px",
           padding: 0,
           background: PRIMARY_WHITE,
         }}
@@ -33,7 +31,7 @@ const SecondaryLayout: React.FunctionComponent<SecondaryLayout> = ({
         <Layout
           style={{
             width: "1000px",
-            marginTop: "100px",
+            marginTop: "75px",
             marginLeft: "auto",
             marginRight: "auto",
             background: PRIMARY_WHITE,
