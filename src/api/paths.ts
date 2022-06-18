@@ -7,6 +7,10 @@ export const getpaginatedDisucssionsPath = (limit = 0, offset = 0) => {
   return `${BASE_PATH}${DISCUSSIONS}?limit=${limit}&offset=${offset}`;
 };
 
+export const createPost = () => {
+  return `${BASE_PATH}${DISCUSSIONS}`;
+};
+
 export const getPost = (id: number) => {
   return `${BASE_PATH}${DISCUSSIONS}/${id}`;
 };
